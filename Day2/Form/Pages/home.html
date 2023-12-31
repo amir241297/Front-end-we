@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        #parent_div {
+            border: 1px solid red;
+            display: grid;
+            width: 90%;
+            margin: auto;
+            padding: 5%;
+            gap: 2%;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, auto);
+        }
+
+        .child_div {
+            border: 1px solid teal;
+        }
+
+        .child_div>img {
+            width: 100%;
+        }
+
+        /* mobile */
+        @media all and (min-width:481px) and (max-width:768px) {
+            #parent_div {
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                grid-template-rows: repeat(5, auto);
+            }
+        }
+
+        @media all and (min-width:769) and (max-width:1024px) {
+            #parent_div {
+                display: grid;
+                grid-template-columns: repeat(4, auto);
+                grid-template-rows: repeat(5, auto);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <a href="./Pages/home.html">Home</a>
+        <a href="./Pages/login.html">Login</a>
+        <a href="./Pages/register.html">Register</a>
+    </div>
+    <div id="parent_div">Home Page</div>
+</body>
+
+</html>
+<script>
+    // fetchData()
+    // function fetchData(){
+    //     console.log("Normal Function")
+    // }
+
+
+    // when we fetch (get data) from the api. api returns a promise.
+    // three state of Promises. 1: pending, 2: fullfil, 3,reject
+
+    let dataArray = []
+    const fetchData1 = async () => {
+        let api = 'https://fakestoreapi.com/products'
+        // way1
+        // try{
+        //     let res= await fetch(api)
+        //     res=await res.json()
+        //     console.log(res)
+        // }catch(err){
+        //     console.log(err)
+        // }
+        // way2
+        fetch(api).then(function (res) {
+            return res.json()
+        }).then(function (res) {
+            console.log(res)
+            // dataArray.push(res)
+            appendData(res)
+        }).catch(function (err) {
+            console.log(err)
+        })
+    }
+
+    function appendData(data) {
+        let p_div = document.getElementById("parent_div")
+        p_div.innerHTML = " "
+        data.map(({ category, image, title, price }) => {
+            let c_div = document.createElement("div")
+            c_div.setAttribute("class", "child_div")
+            let img = document.createElement("img")
+            let des = document.createElement("p")
+            let pri = document.createElement("h4")
+
+            img.src = image
+            des.innerHTML = title
+            pri.innerHTML = `Price: ${price}`
+
+            c_div.append(img, des, pri)
+            p_div.append(c_div)
+        })
+    }
+
+    fetchData1()
+</script>

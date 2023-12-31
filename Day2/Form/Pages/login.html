@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Account</title>
+    <style>
+        #form>form {
+            /* border: left, right, bottom, left; */
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            display: flex;
+            width: 50%;
+            padding: 5%;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <a href="./home.html">Home</a>
+        <a href="./login.html">Login</a>
+        <a href="./register.html">Register</a>
+    </div>
+    <div id="form">
+        <!-- trick1 -->
+        <!-- <form action="">
+            <input name="Name" onchange="onChange(event)" id="name" type="text" placeholder="Name" />
+            <input  id="email" type="Email" placeholder="Email" />
+            <input onchange="onChange(event)" id="password" type="password" placeholder="Password" />
+            <input type="submit" value="Login" />
+        </form> -->
+
+        <!-- trick 2 -->
+        <form action="">
+            <input name="Name"  id="name" type="text" placeholder="Name" />
+            <input  id="email" type="Email" placeholder="Email" />
+            <input  id="password" type="password" placeholder="Password" />
+            <input type="submit" value="Login" />
+        </form>
+    </div>
+</body>
+
+</html>
+<script>
+// trick 1 
+    // function onChange(event) {
+    //     const { value, name } = event.target
+    //     console.log(event.target.value)
+    // }
+
+    // let obj = {
+    //     name: "Suman",
+    //     class: "12Th",
+    //     phone: 78563252
+    // }
+    // const { name, class, phone } = obj
+    // console.log(name, class, phone)
+    // // console.log(obj)
+//  trick 2
+
+    document.querySelector("form").addEventListener("submit",myfunction)
+    function myfunction(event){
+        event.preventDefault()
+        let name=document.getElementById("name").value
+        let email=document.querySelector("#email").value
+        let password=document.querySelector("#password").value
+        console.log(name,email,password)
+    }
+
+</script>

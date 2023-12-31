@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" >
+        <input onchange="changeData(event)"  type="text" placeholder="Enter name">
+        <input onchange="changeData(event)" type="number" placeholder="Number">
+        <input onchange="changeData(event)" type="password" placeholder="Password">
+        <input onclick="handleSubmit(event)" type="submit" value="Login">
+    </form>
+</body>
+
+</html>
+<script>
+    // let block
+    // var global scope
+    // // const block
+    // // let a = 5
+    //     var b = 6
+    //     // const d = 8
+
+    // function any() {
+    //     // let a = 6
+    //     // var b = 7
+    //     // const d = 8
+    //     console.log(b)
+    // }
+    // any()
+    // // console.log(a)
+    // // console.log(d)
+
+    // let a=5
+    // a="suman"
+    // console.log(a)
+
+    // const n='5'v
+    // n=5
+    // console.log(n)
+    function changeData(e){
+        
+        console.log(e.target.value)
+    }
+    function handleSubmit(event){
+        event.preventDefault()
+        console.log("handleS")
+    }
+</script>

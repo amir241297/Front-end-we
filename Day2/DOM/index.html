@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        #parent_div {
+            border: 1px solid red;
+            height: 100vh;
+        }
+
+        .child_div {
+            border: 1px solid teal;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent_div"></div>
+</body>
+
+</html>
+<script>
+
+let a_class_name=[c1,c2c,c5155]
+
+    for (let i = 0; i < 5; i++) {
+        let c_div = document.createElement("div")
+        // c_div.style.border="1px solid teal"
+        c_div.setAttribute("class", "child_div")
+        let h1 = document.createElement("h1")
+        h1.innerHTML = "Learing DOM"
+        let p = document.createElement('p')
+        p.innerHTML = "Document Object Model"
+
+        c_div.append(h1, p)
+        let p_div = document.getElementById('parent_div')
+        p_div.append(c_div)
+    }
+
+
+</script>
