@@ -34,9 +34,8 @@
 
         <!-- trick 2 -->
         <form action="">
-            <input name="Name"  id="name" type="text" placeholder="Name" />
-            <input  id="email" type="Email" placeholder="Email" />
-            <input  id="password" type="password" placeholder="Password" />
+            <input id="email" type="Email" placeholder="Email" />
+            <input id="password" type="password" placeholder="Password" />
             <input type="submit" value="Login" />
         </form>
     </div>
@@ -44,7 +43,7 @@
 
 </html>
 <script>
-// trick 1 
+    // trick 1 
     // function onChange(event) {
     //     const { value, name } = event.target
     //     console.log(event.target.value)
@@ -58,15 +57,88 @@
     // const { name, class, phone } = obj
     // console.log(name, class, phone)
     // // console.log(obj)
-//  trick 2
+    //  trick 2
 
-    document.querySelector("form").addEventListener("submit",myfunction)
-    function myfunction(event){
+    let LS_Data = localStorage.getItem("user_auth")
+    let {email,password} = JSON.parse(LS_Data)
+    document.querySelector("form").addEventListener("submit", myfunction)
+    function myfunction(event) {
         event.preventDefault()
-        let name=document.getElementById("name").value
-        let email=document.querySelector("#email").value
-        let password=document.querySelector("#password").value
-        console.log(name,email,password)
+        let cur_email = document.querySelector("#email").value
+        let cur_password = document.querySelector("#password").value
+// if(ls_pas===cur_pa){
+//     "xndjknxjkd"
+// }
+
+
+
     }
+
+    // destructring
+    // let qw={
+    //     name:"suman",
+    //     email:"suman@gmail.com",
+    //     password:'ndjcdd4545'
+    // }
+
+    
+    // function destru(par){
+    //     const {name,email,password}=par
+    //     console.log(name)
+    //     console.log(email)
+    //     console.log(password)
+    // }
+    // destru(qw)
+
+// ==(data) & ===(data & data type)
+// premituve data type:number boolean, string, undefined, null, bigint
+// non-primitive data type: object, array.
+// let obj1={
+//     name:"suman"
+// }
+// let obj2={
+//     name:"suman"
+// }
+// obj1.name
+// console.log(obj1==obj2) //false
+
+// let a=2
+// let b=2
+// let c=a+b
+// console.log(c) // true
+
+// let n=5;
+// let m=9
+// let j=n+m
+// console.log(n,m,j)
+
+// let obj6={
+//     name:"ammir",
+//     id:"7889d44xd"
+// }
+// let obj4=obj6
+// obj4.name="Arjit"
+// console.log(obj6)
+
+// let w=1;
+// let r="1"
+// console.log(w==r)
+
+
+// non-primitive(pass by reference)
+// // ob1=700045
+// // ob2=700046
+// let obj1={name:"qwert"}
+// let obj2={name:'qwert'}
+// console.log("==",obj1==obj2)
+// console.log("===",obj1===obj2)
+
+// let arr1=[7,8,9]
+// let arr2=[7,8,9]
+// console.log(arr1==arr2)
+// console.log(arr1===arr2)
+
+
+// console.log
 
 </script>

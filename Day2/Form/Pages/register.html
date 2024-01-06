@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Account</title>
 </head>
+
 <body>
     <div id="navbar">
         <a href="./home.html">Home</a>
         <a href="./login.html">Login</a>
         <a href="./register.html">Register</a>
     </div>
+    <form action="">
+        <input name="Name" id="name" type="text" placeholder="Name" />
+        <input id="email" type="Email" placeholder="Email" />
+        <input id="password" type="password" placeholder="Password" />
+        <input type="submit" value="Login" />
+    </form>
 </body>
+
 </html>
+<script>
+    // get data from Local Storage
+    let LS_Data=JSON.parse(localStorage.getItem("user_auth")) || []
+
+    document.querySelector("form").addEventListener("submit", myfunction)
+    
+    function myfunction(event) {
+        event.preventDefault()
+        let name = document.getElementById("name").value
+        let email = document.querySelector("#email").value
+        let password = document.querySelector("#password").value
+        console.log(name, email, password);
+        let user_registration = {
+            name,
+            email,
+            password
+        }
+        // set data into localStorage
+        LS_Data.push(user_registration)
+        localStorage.setItem("user_auth", JSON.stringify(LS_Data))
+        alert("Register...")
+        // delete data from Local storage
+        // localStorage.clear()
+    }
+
+</script>

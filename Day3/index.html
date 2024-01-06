@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Generator function</h1>
+</body>
+
+</html>
+<script>
+    // Generator Function
+    // function* sum(){
+    //     let c=1
+    //     while(true){
+    //         yield c++
+    //     }
+    // }
+    // let s=sum()
+    // console.log(s.next())
+    // console.log(s.next())
+    // console.log(s.next())
+
+    // let p=sum()
+    // console.log(p.next())
+
+    // Spread and Rest operator
+
+    // template literals// elvish opertaor
+    let Topic="template_literal"
+    let language="JS"
+    console.log(`I'm Learning${language}`)
+
+    // spread operator
+    let arr=[2,4,5,9,8]
+    function sum(a,b,c){
+        return a+b+c
+    }
+    // let res=sum(arr[0],arr[1],arr[2])
+    let res=sum(...arr)
+    console.log(res)
+
+    // rest operator
+
+    function multiply(a,b,c,...rest){
+        console.log(rest)
+        return a*b*c
+    }
+    let res1=multiply(2,3,7,8,9,5,4)
+    console.log(res1)
+
+    
+    
+</script>
